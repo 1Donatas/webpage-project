@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Peak District Hiking Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        #map { height: 600px; width: 100%; }
+        .info-box { font-size: 14px; padding: 5px; }
+    </style>
+</head>
+<body>
+    
+    <header style="background-color: #2F855A; color: white; text-align: center; padding: 10px;">
+        <h1>Peak District Hiking Trails</h1>
+    </header>
+
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([53.3498, -1.7703], 10); // Center on Peak District
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Define marker colors based on difficulty
+        function getMarkerColor(difficulty) {
+            if (difficulty === "Easy") return "green";
+            if (difficulty === "Moderate") return "orange";
+            return "red"; // Hard trails
+        }
+
+        // Array of hiking trails from trails.html
+        var trails = [
+            { name: "Mam Tor and the Great Ridge", location: [53.346, -1.815], difficulty: "Moderate", length: "5 miles", description: "Breathtaking ridge walk with views over Hope Valley and Edale." },
+            { name: "Winnats Pass and Cave Dale", location: [53.345, -1.777], difficulty: "Moderate", length: "4.5 miles", description: "Dramatic limestone gorge and scenic valley trail." },
+            { name: "Ladybower Reservoir Circular", location: [53.407, -1.693], difficulty: "Easy", length: "5 miles", description: "A beautiful scenic loop around the reservoir." },
+            { name: "Chrome Hill and Parkhouse Hill", location: [53.203, -1.870], difficulty: "Hard", length: "5 miles", description: "Steep ridges known as the 'Dragon’s Back'." },
+            { name: "Baslow Edge and Curbar Edge", location: [53.270, -1.600], difficulty: "Moderate", length: "6 miles", description: "Gritstone edge walk with wildlife and great views." },
+            { name: "Alport Castles", location: [53.419, -1.780], difficulty: "Hard", length: "7 miles", description: "One of the largest landslips in the UK, featuring cliffs." },
+            { name: "Thor’s Cave and Manifold Valley", location: [53.107, -1.829], difficulty: "Moderate", length: "4 miles", description: "Scenic cave and valley trail with a limestone entrance." },
+            { name: "The Roaches and Lud’s Church", location: [53.166, -1.986], difficulty: "Moderate", length: "7 miles", description: "Dramatic rocky landscapes and mystical mossy gorge." },
+            { name: "Kinder Scout", location: [53.383, -1.870], difficulty: "Hard", length: "8 miles", description: "Famous moorland plateau offering stunning views." },
+            { name: "Stanage Edge", location: [53.348, -1.635], difficulty: "Moderate", length: "6 miles", description: "A favorite climbing and walking spot with amazing vistas." },
+            { name: "Dovedale and Thorpe Cloud", location: [53.055, -1.775], difficulty: "Easy", length: "3 miles", description: "Famous stepping stones and limestone hills." },
+            { name: "Castleton to Hope Walk", location: [53.342, -1.772], difficulty: "Easy", length: "4 miles", description: "A scenic walk between two historic villages." },
+            { name: "Edale to Jacob’s Ladder", location: [53.363, -1.814], difficulty: "Hard", length: "6.5 miles", description: "Challenging ascent with rewarding views." },
+        ];
+
+        // Add markers for each trail with colored icons
+        trails.forEach(trail => {
+            var marker = L.circleMarker(trail.location, {
+                color: getMarkerColor(trail.difficulty),
+                radius: 8,
+                fillOpacity: 0.8
+            }).addTo(map);
+
+            marker.bindPopup(`
+                <div class="info-box">
+                    <h3>${trail.name}</h3>
+                    <p><strong>Difficulty:</strong> ${trail.difficulty}</p>
+                    <p><strong>Distance:</strong> ${trail.length}</p>
+                    <p>${trail.description}</p>
+                </div>
+            `);
+        });
+
+    </script>
+
+</body>
+</html>

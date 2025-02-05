@@ -14,6 +14,7 @@
             <ul class="flex space-x-6">
                 <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
                 <li><a href="trails.html" class="hover:text-gray-300">Trails</a></li>
+                <li><a href="map.html" class="hover:text-gray-300">Map</a></li>
                 <li><a href="about.html" class="hover:text-gray-300">About</a></li>
                 <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
             </ul>
@@ -89,8 +90,56 @@
     </section>
      
     <section class="container mx-auto my-12 px-6">
-        <h2 class="text-3xl font-semibold text-gray-800">Contact Us</h2>
-        <p class="text-gray-600">Email: info@adventuretrails.com</p>
+        <h2 class="text-3xl font-semibold text-gray-800 text-center mb-4">Contact Us</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Contact Information -->
+            <div>
+                <p class="text-gray-600 mb-4">Have questions or need assistance? Feel free to reach out to us via email or connect with us on social media.</p>
+                <p class="text-gray-600"><strong>Email:</strong> info@adventuretrails.com</p>
+                <p class="text-gray-600"><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p class="text-gray-600"><strong>Address:</strong> 123 Adventure Lane, Hiking City, HC 98765</p>
+                
+                <!-- Social Media Links -->
+                <div class="mt-4">
+                    <p class="text-gray-600 font-semibold">Follow us on:</p>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-blue-600">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-red-600 hover:text-red-800">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-700 hover:text-blue-900">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Send Us a Message</h3>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-600 font-medium">Your Name</label>
+                        <input type="text" id="name" class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-600 font-medium">Your Email</label>
+                        <input type="email" id="email" class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-600 font-medium">Your Message</label>
+                        <textarea id="message" rows="4" class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-800 transition">Send Message</button>
+                </form>
+            </div>
+        </div>
     </section>
     
     <footer class="bg-green-700 text-white text-center py-4 mt-12">
