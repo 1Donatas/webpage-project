@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore breathtaking hiking trails and adventures">
-    <title>Hiking Adventures</title>
+    <title>Adventure Trails</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-green-700 text-white py-4">
-        <nav class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-2xl font-bold">Adventure Trails</h1>
-            <ul class="flex space-x-6">
+
+    <!-- Header & Navigation -->
+    <header class="absolute top-0 left-0 w-full bg-transparent transition-all duration-300 hover:bg-green-700 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white drop-shadow-lg">Adventure Trails</h1>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class="md:hidden">
+                <input type="checkbox" id="menu-toggle" class="peer hidden">
+                <label for="menu-toggle" class="text-white text-2xl cursor-pointer">☰</label>
+
+                <!-- Mobile Menu (Appears When Checked) -->
+                <div class="absolute top-full left-0 w-full bg-green-700 text-white text-center py-4 flex-col space-y-2 hidden peer-checked:flex md:hidden">
+                    <a href="index.html" class="block py-2">Home</a>
+                    <a href="trails.html" class="block py-2">Trails</a>
+                    <a href="map.html" class="block py-2">Map</a>
+                    <a href="about.html" class="block py-2">About</a>
+                    <a href="contact.html" class="block py-2">Contact</a>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-6 text-white text-lg">
                 <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
                 <li><a href="trails.html" class="hover:text-gray-300">Trails</a></li>
                 <li><a href="map.html" class="hover:text-gray-300">Map</a></li>
@@ -20,12 +38,15 @@
             </ul>
         </nav>
     </header>
-    
-    <section class="hero bg-[url('https://hips.hearstapps.com/hmg-prod/images/visit-peak-district-1602451405.jpg')] bg-cover bg-center h-[400px] flex flex-col items-center justify-center text-white text-center">
-        <span class="sr-only">A scenic view of the Peak District with rolling hills and a clear sky.</span>
-        <h2 class="text-4xl font-bold drop-shadow-lg opacity-50">Find Your Next Adventure</h2>
-        <button class="mt-4 px-6 py-3 bg-green-600 rounded-lg hover:bg-green-800 transition" onclick="location.href='trails.html'"> Discover More</button>
+
+    <!-- Hero Section -->
+    <section class="hero bg-[url('https://hips.hearstapps.com/hmg-prod/images/visit-peak-district-1602451405.jpg')] bg-cover bg-center h-[400px] flex flex-col items-center justify-center text-white text-center px-4 md:px-10">
+        <h2 class="text-3xl md:text-5xl font-bold drop-shadow-md opacity-75">Discover Your Next Adventure</h2>
+        <p class="text-lg md:text-xl mt-2 drop-shadow-md ">Explore the best trails and landscapes around you.</p>
+        <a href="trails.html" class="mt-4 px-6 py-2 bg-green-600 hover:bg-green-500 text-white text-lg rounded-lg transition-all duration-300">Find Trails</a>
     </section>
+
+
     
     <section class="container mx-auto my-12 px-6">
         <h2 class="text-3xl font-semibold text-gray-800 text-center">Popular Hiking Trails</h2>
@@ -101,23 +122,6 @@
                 <p class="text-gray-600"><strong>Address:</strong> 123 Adventure Lane, Hiking City, HC 98765</p>
                 
                 <!-- Social Media Links -->
-                <div class="mt-4">
-                    <p class="text-gray-600 font-semibold">Follow us on:</p>
-                    <div class="flex space-x-4 mt-2">
-                        <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fab fa-facebook text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-blue-400 hover:text-blue-600">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-red-600 hover:text-red-800">
-                            <i class="fab fa-instagram text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-blue-700 hover:text-blue-900">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
     
             <!-- Contact Form -->
